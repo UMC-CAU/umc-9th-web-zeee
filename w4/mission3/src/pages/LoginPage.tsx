@@ -19,7 +19,7 @@ const LoginPage = () => {
     console.log(values);
     try {
       const response = await postSignin(values);
-      setItem(response.data.accessToken);
+      localStorage.setItem("accessToken", response.data.accessToken);
     } catch (error) {
       alert(error);
     }
