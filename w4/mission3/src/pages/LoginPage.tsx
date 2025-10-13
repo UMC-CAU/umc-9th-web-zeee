@@ -23,7 +23,7 @@ const LoginPage = () => {
     try {
       const response = await postSignin(values);
       localStorage.setItem("accessToken", response.data.accessToken);
-      navigate("/", { replace: true });
+      navigate("/my", { replace: true });
     } catch (error) {
       alert(error);
     }

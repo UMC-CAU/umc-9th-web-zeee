@@ -26,6 +26,12 @@ const HomeLayout = () => {
 
           <div className="flex gap-3">
             <button
+              onClick={() => navigate("/signup")}
+              className="px-4 py-2 text-sm rounded-md bg-gray-200 hover:bg-gray-300 transition"
+            >
+              회원가입
+            </button>
+            <button
               onClick={() => navigate("/login")}
               className="px-4 py-2 text-sm rounded-md bg-gray-200 hover:bg-gray-300 transition"
             >
