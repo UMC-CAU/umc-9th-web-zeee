@@ -1,0 +1,6 @@
+packages:
+  - w*
+  - w*/m*
+
+onlyBuiltDependencies:
+  - esbuild
