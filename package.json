@@ -1,0 +1,15 @@
+{
+  "name": "umc-workspace",
+  "private": true,
+  "packageManager": "pnpm@10.17.1",
+  "scripts": {
+    "dev:w0": "pnpm --filter w0 dev",
+    "dev:w1": "pnpm --filter w1 dev",
+    "dev:w2": "pnpm --filter w2 dev",
+    "dev:w3": "pnpm --filter w3 dev",
+    "dev:w4-a": "pnpm --filter w4-appA dev",
+    "dev:w4-b": "pnpm --filter w4-appB dev",
+    "dev:w5": "pnpm --filter w5 dev",
+    "dev:w6": "pnpm --filter w6 dev"
+  }
+}
