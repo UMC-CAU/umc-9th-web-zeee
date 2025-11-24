@@ -3,7 +3,6 @@ import {
   type RequestSigninDto,
   type ResponseSignupDto,
   type ResponseSigninDto,
-  type ResponseMyInfoDto,
 } from "../types/auth";
 import { axiosInstance } from "./axios";
 
@@ -23,7 +22,12 @@ export const postSignin = async (
   return data;
 };
 
-export const getMyInfo = async (): Promise<ResponseMyInfoDto> => {
-  const { data } = await axiosInstance.get("/v1/users/me");
+export const getMyInfo = async () => {
+  const res = await axiosInstance.get("/v1/users/me");
+  return res.data;
+};
+
+export const postLogout = async () => {
+  const { data } = await axiosInstance.post("/v1/auth/signout");
   return data;
 };
