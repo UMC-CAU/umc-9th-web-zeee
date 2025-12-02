@@ -1,14 +1,9 @@
 import useForm from "../hooks/useForm";
 import { type UserSigninInformation, validateSignin } from "../utils/validate";
-import { postSignin } from "../apis/auth";
-import { useLocalStorage } from "../hooks/useLocalStorage";
-import { useNavigate } from "react-router-dom";
-
-import { LOCAL_STORAGE_KEY } from "../constants/key";
+import { useAuth } from "../context/AuthContext";
 
 const LoginPage = () => {
-  const { setItem } = useLocalStorage(LOCAL_STORAGE_KEY.accessToken);
-  const navigate = useNavigate();
+  const { login } = useAuth();
   const { values, errors, touched, getInputProps } =
     useForm<UserSigninInformation>({
       initialValue: {
@@ -19,14 +14,7 @@ const LoginPage = () => {
     });
 
   const handleSubmit = async () => {
-    console.log(values);
-    try {
-      const response = await postSignin(values);
-      localStorage.setItem("accessToken", response.data.accessToken);
-      navigate("/my", { replace: true });
-    } catch (error) {
-      alert(error);
-    }
+    await login(values);
   };
 
   //오류가 하나라도 있거나, 입력값이 비어있으면 버튼을 비활성화
